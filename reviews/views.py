@@ -3,10 +3,10 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-with open('../models/logistic_model.pkl', 'rb') as model_file:
+with open('models/logistic_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
-with open('../models/tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
+with open('models/tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
 
 def index(request):
