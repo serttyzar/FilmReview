@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: film-review-analyzer-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: film-review-analyzer
+  template:
+    metadata:
+      labels:
+        app: film-review-analyzer
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: film-review-analyzer
+        image: srtyzar/film-review-analyzer:latest
+        ports:
+        - containerPort: 5000
